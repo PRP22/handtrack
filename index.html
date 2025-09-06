@@ -179,13 +179,9 @@
                 lastVideoTime = video.currentTime;
                 const results = handLandmarker.detectForVideo(video, startTimeMs);
 
-                ctx.save();
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                ctx.translate(canvas.width, 0);
-                ctx.scale(-1, 1);
+                // The mirrored effect has been removed by drawing the video directly without transformation.
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                ctx.restore();
 
                 if (results.landmarks) {
                     const allHands = results.landmarks;
@@ -247,4 +243,5 @@
     </script>
 </body>
 </html>
+
 
